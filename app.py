@@ -15,7 +15,7 @@ db = firestore.client()
 todo_ref = db.collection('todos')
 
 
-@app.route('/update/', methods=['POST']) #'POST', 'PUT'
+@app.route('/update/', methods=['GET']) #'POST', 'PUT'
 def update():
     """
         update() : Update document in Firestore collection with request body.
@@ -25,7 +25,7 @@ def update():
     name = "" #projects/munchies-a2feb/databases/(default)/documents/foodEaten/zskIV2hw6vmxnH3RPJXg
     fields = ""
     rfidTag = "D4078AC3"
-    amount = 0
+    amount = request.args.get('arg1')
 
     doc_ref = db.collection(u'foodEaten').document(u'zskIV2hw6vmxnH3RPJXg')
     doc_ref.set({
