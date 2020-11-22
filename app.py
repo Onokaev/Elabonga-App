@@ -37,6 +37,12 @@ def update():
 
     return "Hello world"
 
+@app.route('/getrequest/<string_data>')
+def handler(string_data):
+    print(request)
+    print(string_data)
+    return 'ok'
+
 port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
     app.run(threaded=True, host='0.0.0.0', port=port)
